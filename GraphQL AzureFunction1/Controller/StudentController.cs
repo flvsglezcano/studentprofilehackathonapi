@@ -1,4 +1,5 @@
-﻿using GraphQL_AzureFunction1.Types;
+﻿using GraphQL_AzureFunction1.AzureEntities;
+using GraphQL_AzureFunction1.Types;
 using GraphQLSPP.Service;
 using Microsoft.AspNetCore.Mvc;
 using System;

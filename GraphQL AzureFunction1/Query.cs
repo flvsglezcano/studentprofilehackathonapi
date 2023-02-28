@@ -1,15 +1,24 @@
 ﻿using GraphQL;
 using GraphQL_AzureFunction1.Types;
+using GraphQLSPP.Service;
 
 namespace GraphQL_AzureFunction1
 {
     public class Query
     {
+        private readonly IStudentTableStorageService _storageService;
+
+        private Query(IStudentTableStorageService storageService)
+        {
+            _storageService = storageService ?? throw new ArgumentNullException(nameof(storageService));
+
+        }
+
         #region Dummy Data - Remove when connection to Table Storage Established
-        private static List<StudentEntity> students = new List<StudentEntity>() {
-          new StudentEntity(){ Id = 1, FirstName = "John", LastName = "Smith", Grade = 6, DateOfBirth = DateTime.Now},
-          new StudentEntity(){ Id = 2, FirstName = "Joanna", LastName = "Smith", Grade = 12, DateOfBirth = DateTime.Now},
-          new StudentEntity(){ Id = 3, FirstName = "Bill", LastName = "Nye", Grade = 10, DateOfBirth = DateTime.Now}
+        private static List<StudentGraphQLEntity> students = new List<StudentGraphQLEntity>() {
+          new StudentGraphQLEntity(){ Id = 1, FirstName = "John", LastName = "Smith", Grade = 6, DateOfBirth = DateTime.Now},
+          new StudentGraphQLEntity(){ Id = 2, FirstName = "Joanna", LastName = "Smith", Grade = 12, DateOfBirth = DateTime.Now},
+          new StudentGraphQLEntity(){ Id = 3, FirstName = "Bill", LastName = "Nye", Grade = 10, DateOfBirth = DateTime.Now}
         };
 
         private static List<PhoneEntity> phones = new List<PhoneEntity>() {
@@ -27,15 +36,18 @@ namespace GraphQL_AzureFunction1
 
         #region Student Query's
         [GraphQLMetadata("students")]
-        public List<StudentEntity> GetStudents()
+        public List<StudentGraphQLEntity> GetStudents()
         {
-            return students;
+            return _storageService.GetAllStudentEntitiesAsync().Result.ToList();
+            //return students;
         }
 
         [GraphQLMetadata("student")]
-        public StudentEntity? GetStudent(int id)
-        {
-            return students.SingleOrDefault(s => s.Id == id);
+        public StudentGraphQLEntity? GetStudent(int id)
+        { 
+            return _storageService.GetStudentEntityAsync(id).Result;
+
+            // students.SingleOrDefault(s => s.Id == id);
         }
         #endregion
 
