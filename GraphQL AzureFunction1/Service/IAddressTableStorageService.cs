@@ -12,7 +12,7 @@ namespace GraphQLSPP.Service
         // test
         Task<List<AddressEntity>> GetAllAddressEntitiesAsync();
         Task<AddressEntity> GetAddressEntityAsync(int id);
-        Task<AddressEntity> UpsertAddressEntityAsync(string id);
+        Task<AddressEntity> UpsertAddressEntityAsync(AddressEntity entity);
         Task DeleteStudentEntityAsync(int id);
     }
 }

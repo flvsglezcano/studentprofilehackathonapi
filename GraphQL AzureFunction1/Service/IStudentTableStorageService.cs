@@ -11,7 +11,7 @@ namespace GraphQLSPP.Service
     {
         Task<List<StudentEntity>> GetAllStudentEntitiesAsync();
         Task<StudentEntity> GetStudentEntityAsync(int id);
-        Task<StudentEntity> UpsertStudentEntityAsync(string id);
+        Task<StudentEntity> UpsertStudentEntityAsync(StudentEntity entiry);
         Task DeleteStudentEntityAsync(int id);
     }
 }
