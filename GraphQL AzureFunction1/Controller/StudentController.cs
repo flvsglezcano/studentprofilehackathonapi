@@ -1,4 +1,5 @@
 ﻿using GraphQL_AzureFunction1.Types;
+using GraphQLSPP.Service;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,9 @@ namespace GraphQLSPP.Controller
         [ActionName(nameof(GetAsync))]
         public async Task<IActionResult> GetAsync([FromQuery] string category, string id)
         {
-            return Ok(await _storageService.GetEntityAsync(category, id));
+            return Ok(await _storageService.GetStudentEntityAsync(category, id));
         }
+
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] StudentEntity entity)
         {

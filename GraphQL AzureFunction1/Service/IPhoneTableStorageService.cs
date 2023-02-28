@@ -11,7 +11,7 @@ namespace GraphQLSPP.Service
     {
         Task<List<PhoneEntity>> GetAllPhoneEntitiesAsync();
         Task<PhoneEntity> GetPhoneEntityAsync(int id);
-        Task<PhoneEntity> UpsertPhoneEntityAsync(string id);
+        Task<PhoneEntity> UpsertPhoneEntityAsync(PhoneEntity entity);
         Task DeletePhoneEntityAsync(int id);
     }
 }
