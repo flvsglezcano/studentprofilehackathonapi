@@ -1,11 +1,12 @@
 {
-    "version": "2.0",
-    "logging": {
-        "applicationInsights": {
-            "samplingSettings": {
-                "isEnabled": true,
-                "excludedTypes": "Request"
-            }
-        }
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
     }
+  },
+  "ConnectionString":"DefaultEndpointsProtocol=https;AccountName=graphqldemo2023;AccountKey=7YNLfDaPmtfScl2o47n/nc9rIq4T+nq94st7rATc56Te45h00q+MHegMLAfyVQiV4guCiETABWHc+ASt3GXyeg==;EndpointSuffix=core.windows.net"
 }
