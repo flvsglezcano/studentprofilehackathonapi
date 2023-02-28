@@ -35,6 +35,11 @@ namespace GraphQLSPP.Service
             return await tableClient.GetEntityAsync<StudentEntity>("1", rowKey);
         }
 
+        public Task<StudentEntity> GetStudentEntityAsync(string partitionKey, string rowKey)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<StudentEntity> UpsertStudentEntityAsync(StudentEntity entity)
         {
             var tableClient = await GetTableClient();
