@@ -2,6 +2,7 @@
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
+using GraphQL;
 
 namespace GraphQL_AzureFunction1.Types
 {
