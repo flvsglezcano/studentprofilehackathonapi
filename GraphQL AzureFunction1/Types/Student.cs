@@ -1,13 +1,16 @@
-﻿using System;
+﻿using GraphQL;
 
 namespace GraphQL_AzureFunction1
 {
     public class Student
     {
-        public int Id { get; set; } = default!;
-        public string FirstName { get; set; } = default!;
-        public string LastName { get; set; } = default!;
-        public int Grade { get; set; } = default!;
-        public DateTime DateOfBirth { get; set; }   
+        public int Id { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public Int32? Grade { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public Address? Address { get; set; }
+        public Phone? Phone { get; set; }
+
     }
 }
