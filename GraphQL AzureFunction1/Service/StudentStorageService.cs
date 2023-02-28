@@ -23,28 +23,19 @@ namespace GraphQLSPP.Service
             throw new NotImplementedException();
         }
 
-        public async Task<List<StudentEntity>> GetAllStudentEntitiesAsync()
-        {
-            var tableClient = await GetTableClient();
-            return await tableClient.GetEntityAsync<StudentEntity>(1);
-        }
-
-        public async Task<StudentEntity> GetStudentEntityAsync(string rowKey)
-        {
-            var tableClient = await GetTableClient();
-            return await tableClient.GetEntityAsync<StudentEntity>("1", rowKey);
-        }
-
-        public Task<StudentEntity> GetStudentEntityAsync(string partitionKey, string rowKey)
+        public Task<List<StudentEntity>> GetAllStudentEntitiesAsync()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<StudentEntity> UpsertStudentEntityAsync(StudentEntity entity)
+        public Task<StudentEntity> GetStudentEntityAsync(int id)
         {
-            var tableClient = await GetTableClient();
-            object value = await tableClient.UpsertEntityAsync(entity);
-            return entity;
+            throw new NotImplementedException();
+        }
+
+        public Task<StudentEntity> UpsertStudentEntityAsync(StudentEntity entiry)
+        {
+            throw new NotImplementedException();
         }
 
         private async Task<TableClient> GetTableClient()

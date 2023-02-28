@@ -47,7 +47,7 @@ namespace GraphQL_AzureFunction1
         }
 
         [GraphQLMetadata("phone")]
-        public Phone? GetPhone(int id)
+        public PhoneEntity? GetPhone(int id)
         {
             return phones.SingleOrDefault(s => s.Id == id);
         }
@@ -55,13 +55,13 @@ namespace GraphQL_AzureFunction1
 
         #region Address Query's
         [GraphQLMetadata("addresses")]
-        public List<Address> GetAddresses(int id)
+        public List<AddressEntity> GetAddresses(int id)
         {
             return addresses;
         }
 
         [GraphQLMetadata("address")]
-        public Address? GetAddress(int id)
+        public AddressEntity? GetAddress(int id)
         {
             return addresses.SingleOrDefault(s => s.Id == id);
         }

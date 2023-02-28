@@ -19,19 +19,19 @@ namespace GraphQLSPP.Controller
 
         [HttpGet]
         [ActionName(nameof(GetAsync))]
-        public async Task<IActionResult> GetAsync([FromQuery] string category, string id)
+        public async Task<IActionResult> GetAsync([FromQuery] int id)
         {
-            return Ok(await _storageService.GetStudentEntityAsync(category, id));
+            return Ok(await _storageService.GetStudentEntityAsync(id));
         }
 
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] StudentEntity entity)
         {
             entity.PartitionKey = entity.PartitionKey;
-            string Id = Guid.NewGuid().ToString();
-            entity.Id = Id;
-            entity.RowKey = Id;
-            var createdEntity = await _storageService.UpsertEntityAsync(entity);
+            //string Id = Guid.NewGuid().ToString();
+            //entity.Id = Id;
+            //entity.RowKey = Id;
+            var createdEntity = await _storageService.UpsertStudentEntityAsync(entity);
             return CreatedAtAction(nameof(GetAsync), createdEntity);
         }
         [HttpPut]
@@ -39,13 +39,13 @@ namespace GraphQLSPP.Controller
         {
             entity.PartitionKey = entity.PartitionKey;
             entity.RowKey = entity.RowKey;
-            await _storageService.UpsertEntityAsync(entity);
+            await _storageService.UpsertStudentEntityAsync(entity);
             return NoContent();
         }
         [HttpDelete]
-        public async Task<IActionResult> DeleteAsync([FromQuery] string category, string id)
+        public async Task<IActionResult> DeleteAsync([FromQuery] int id)
         {
-            await _storageService.DeleteEntityAsync(category, id);
+            await _storageService.DeleteStudentEntityAsync(id);
             return NoContent();
         }
     }

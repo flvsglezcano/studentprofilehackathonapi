@@ -10,7 +10,7 @@ namespace GraphQLSPP.Service
     public interface IStudentTableStorageService
     {
         Task<List<StudentEntity>> GetAllStudentEntitiesAsync();
-        Task<StudentEntity> GetStudentEntityAsync(string partitionKey, string rowKey);
+        Task<StudentEntity> GetStudentEntityAsync(int id);
         Task<StudentEntity> UpsertStudentEntityAsync(StudentEntity entiry);
         Task DeleteStudentEntityAsync(int id);
     }
