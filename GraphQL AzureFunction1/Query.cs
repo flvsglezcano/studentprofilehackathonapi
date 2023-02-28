@@ -32,7 +32,7 @@ namespace GraphQL_AzureFunction1
         }
 
         [GraphQLMetadata("student")]
-        public Student? GetStudent(int id)
+        public Student GetStudent(int? id)
         {
             return students.SingleOrDefault(s => s.Id == id);
         }
@@ -46,7 +46,7 @@ namespace GraphQL_AzureFunction1
         }
 
         [GraphQLMetadata("phone")]
-        public Phone? GetPhone(int id)
+        public Phone GetPhone(int? id)
         {
             return phones.SingleOrDefault(s => s.Id == id);
         }
@@ -54,13 +54,13 @@ namespace GraphQL_AzureFunction1
 
         #region Address Query's
         [GraphQLMetadata("addresses")]
-        public List<Address> GetAddresses(int id)
+        public List<Address> GetAddresses(int? id)
         {
             return addresses;
         }
 
         [GraphQLMetadata("address")]
-        public Address? GetAddress(int id)
+        public Address GetAddress(int? id)
         {
             return addresses.SingleOrDefault(s => s.Id == id);
         }
