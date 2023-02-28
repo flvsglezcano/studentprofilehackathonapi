@@ -9,6 +9,7 @@ namespace GraphQLSPP.Service
 {
     public interface IAddressTableStorageService
     { 
+        // test
         Task<List<AddressEntity>> GetAllAddressEntitiesAsync();
         Task<AddressEntity> GetAddressEntityAsync(int id);
         Task<AddressEntity> UpsertAddressEntityAsync(string id);
